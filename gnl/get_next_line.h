@@ -1,47 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sark <sark@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mpedroso <mpedroso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/28 19:18:14 by sark              #+#    #+#             */
-/*   Updated: 2023/03/29 18:31:23 by sark             ###   ########.fr       */
+/*   Created: 2022/11/17 11:55:41 by mpedroso          #+#    #+#             */
+/*   Updated: 2022/11/29 13:48:11 by mpedroso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
-
-# include "./mlx/mlx.h"
-# include "./mlx/mlx_int.h"
-# include <stdlib.h>
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+# include <unistd.h>
 # include <stdio.h>
+# include <stdlib.h>
 # include <fcntl.h>
-
-typedef struct  s_win
-{
-    void    *mlx;
-    void    *mlx_win;
-    char    **map;
-    int     x;
-    int     y;
-}   t_win;
-
-t_win   *mlx_win(void);
-
-int     eventos(int keycode);
-
-void    read_map(char *filename);
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1
+# endif
 
 char	*get_next_line(int fd);
-
-size_t	ft_strlen(char *s);
-
 char	*ft_strjoin(char *s1, char *buf);
-
-int	clear_ln(char *buf);
-
+size_t	ft_strlen(char *s);
+int		clear_ln(char *buf);
 char	*free_gnl(char *gnl);
 
 #endif

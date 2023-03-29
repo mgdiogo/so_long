@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   keyhooks.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sark <sark@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/28 19:11:45 by sark              #+#    #+#             */
-/*   Updated: 2023/03/29 18:33:06 by sark             ###   ########.fr       */
+/*   Created: 2023/03/29 16:37:25 by sark              #+#    #+#             */
+/*   Updated: 2023/03/29 17:53:48 by sark             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-int	main(void)
+int eventos(int keycode)
 {
-	mlx_win()->mlx = mlx_init();
-	mlx_win()->mlx_win = mlx_new_window(mlx_win()->mlx, 184, 184, "Hello world!");
-	mlx_hook(mlx_win()->mlx_win, 2, 1L<<0, eventos, mlx_win());
-	read_map("./maps/map.ber");
+    if (keycode == 119 || keycode == 97 || keycode == 115 || keycode == 100)
+    {
+        printf("%i\n", keycode);
+    }
 
-	/*printf("Quantidade de linhas: %i\n", mlx_win()->y);*/
-	
-	mlx_loop(mlx_win()->mlx);
+    if (keycode == 65307)
+    {
+        mlx_destroy_window(mlx_win()->mlx, mlx_win()->mlx_win);
+        exit(0);
+    }
+    return (0);
 }
