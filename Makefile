@@ -1,18 +1,16 @@
 NAME	=	so_long
 
-LIB		=	-L ./mlx -lmlx -lXext -lX11
+FLAGS	=	-Wall -Werror -Wextra -L ./mlx -lmlx -lXext -lX11
 
 CC		=	cc
 
-SRC		=	so_long.c ./aux/create_win.c ./aux/keyhooks.c \
-			./gnl/get_next_line.c ./gnl/get_next_line_utils.c \
-			./aux/read_map.c
+SRC		=	so_long.c
 
 all:	$(NAME)
 
 $(NAME):
 		make -C ./mlx
-		$(CC) -o $(NAME) $(SRC) $(LIB) $(FLAGS)
+		$(CC) $(FLAGS) -o $(NAME) $(SRC)
 
 clean:
 		make clean -C ./mlx
