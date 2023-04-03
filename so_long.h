@@ -6,7 +6,7 @@
 /*   By: sark <sark@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 19:18:14 by sark              #+#    #+#             */
-/*   Updated: 2023/03/29 18:31:23 by sark             ###   ########.fr       */
+/*   Updated: 2023/04/03 18:58:43 by sark             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_win   *mlx_win(void);
 
 int     eventos(int keycode);
 
-void    read_map(char *filename);
+int    read_map(char *filename);
 
 char	*get_next_line(int fd);
 
@@ -43,5 +43,7 @@ char	*ft_strjoin(char *s1, char *buf);
 int	clear_ln(char *buf);
 
 char	*free_gnl(char *gnl);
+
+int    check_map(char *filename);
 
 #endif

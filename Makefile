@@ -6,7 +6,7 @@ CC		=	cc
 
 SRC		=	so_long.c ./aux/create_win.c ./aux/keyhooks.c \
 			./gnl/get_next_line.c ./gnl/get_next_line_utils.c \
-			./aux/read_map.c
+			./aux/map_parsing.c
 
 all:	$(NAME)
 
