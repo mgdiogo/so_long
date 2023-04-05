@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_map.c                                         :+:      :+:    :+:   */
+/*   map_parsing.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sark <sark@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 18:06:05 by sark              #+#    #+#             */
-/*   Updated: 2023/04/03 19:00:22 by sark             ###   ########.fr       */
+/*   Updated: 2023/04/05 20:27:14 by sark             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int read_map(char *filename)
         return (0);
     if (mlx_win()->y > 0)
     {
-        mlx_win()->map = (char **)malloc(sizeof(char *) * (mlx_win()->y + 1));
-        if (!mlx_win()->map)
+        mlx_map()->map = (char **)malloc(sizeof(char *) * (mlx_win()->y + 1));
+        if (!mlx_map()->map)
             return (0);
     }
     return (1);
@@ -52,18 +52,18 @@ int check_map(char *filename)
     j = 0;
     while (1)
     {
-        mlx_win()->map[i] = get_next_line(fd);
-        if (!mlx_win()->map[i])
+        mlx_map()->map[i] = get_next_line(fd);
+        if (!mlx_map()->map[i])
             break ;
         i++;
     }
     i = 0;
-    j = ft_strlen(mlx_win()->map[i]);
-    while (mlx_win()->map && mlx_win()->map[++i])
+    j = ft_strlen(mlx_map()->map[i]);
+    while (mlx_map()->map && mlx_map()->map[++i])
     {
-        if (!mlx_win()->map[i + 1])
+        if (!mlx_map()->map[i + 1])
             j--;
-        if (ft_strlen(mlx_win()->map[i]) != j)
+        if (ft_strlen(mlx_map()->map[i]) != j)
             return (0);
     }
     mlx_win()->x = j;
