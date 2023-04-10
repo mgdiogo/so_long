@@ -12,7 +12,7 @@ all:	$(NAME)
 
 $(NAME):
 		make -C ./mlx
-		$(CC) -o $(NAME) $(SRC) $(LIB) $(FLAGS)
+		$(CC) -o $(NAME) $(SRC) $(LIB) $(FLAGS) -fsanitize=address
 
 clean:
 		make clean -C ./mlx

@@ -12,27 +12,21 @@
 
 #include "../so_long.h"
 
-/*
-W = 119
-S = 115
-A = 97
-D = 100
-
-LEMBRAR DE DAR REPLACE DE 44 POR PLAYER_SIZE
-
-*/
-
 int eventos(int keycode)
 {
-    
-    if (keycode == 97)
-        mlx_put_image_to_window(mlx_win()->mlx, mlx_win()->mlx_win, mlx_map()->player, mlx_map()->p_x - 44, mlx_map()->p_y);
-    if (keycode == 100)
-        mlx_put_image_to_window(mlx_win()->mlx, mlx_win()->mlx_win, mlx_map()->player, mlx_map()->p_x + 44, mlx_map()->p_y);
-    if (keycode == 119)
-        mlx_put_image_to_window(mlx_win()->mlx, mlx_win()->mlx_win, mlx_map()->player, mlx_map()->p_x, mlx_map()->p_y - 44);
-    if (keycode == 115)
-        mlx_put_image_to_window(mlx_win()->mlx, mlx_win()->mlx_win, mlx_map()->player, mlx_map()->p_x, mlx_map()->p_y + 44);
+    if (keycode == 97 || keycode == 65361 || keycode == 100 || keycode == 65363 || keycode == 119 || keycode == 65362 || keycode == 115 || keycode == 65364)
+    {
+        if (keycode == 97 || keycode == 65361 && (mlx_map()->p_x - 1 > PLAYER_SIZE))
+            mlx_map()->p_x -= PLAYER_SIZE;
+        if (keycode == 100 || keycode == 65363 && (mlx_map()->map[mlx_map()->p_y][mlx_map()->p_x + 1] != '1'))
+            mlx_map()->p_x += PLAYER_SIZE;
+        if (keycode == 119 || keycode == 65362 && (mlx_map()->map[mlx_map()->p_y - 1][mlx_map()->p_x] != '1'))
+            mlx_map()->p_y -= PLAYER_SIZE;
+        if (keycode == 115 || keycode == 65364 && (mlx_map()->map[mlx_map()->p_y + 1][mlx_map()->p_x] != '1'))
+            mlx_map()->p_y += PLAYER_SIZE;
+        build_map();
+        mlx_put_image_to_window(mlx_win()->mlx, mlx_win()->mlx_win, mlx_map()->player, mlx_map()->p_x, mlx_map()->p_y);
+    }
     if (keycode == 65307)
     {
         mlx_destroy_window(mlx_win()->mlx, mlx_win()->mlx_win);

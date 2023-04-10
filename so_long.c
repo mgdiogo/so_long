@@ -32,6 +32,7 @@ int	main(int argc, char **argv)
 	mlx_map()->background = mlx_xpm_file_to_image(mlx_win()->mlx, "./assets/background.xpm", &mlx_win()->x, &mlx_win()->y);
 	mlx_map()->player = mlx_xpm_file_to_image(mlx_win()->mlx, "./assets/player.xpm", &mlx_win()->x, &mlx_win()->y);
 	build_map();
+	set_player();
 	mlx_hook(mlx_win()->mlx_win, 2, 1L<<0, eventos, mlx_win());
 	mlx_loop(mlx_win()->mlx);
 }

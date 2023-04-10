@@ -61,4 +61,6 @@ int    check_map(char *filename);
 
 void    build_map(void);
 
+void    set_player(void);
+
 #endif
