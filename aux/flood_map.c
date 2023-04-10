@@ -6,7 +6,7 @@
 /*   By: sark <sark@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 19:45:22 by sark              #+#    #+#             */
-/*   Updated: 2023/04/10 22:05:23 by sark             ###   ########.fr       */
+/*   Updated: 2023/04/10 22:35:12 by sark             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ void    set_player(void)
             if (mlx_map()->map[i][j] == 'P')
             {
                 mlx_put_image_to_window(mlx_win()->mlx, mlx_win()->mlx_win, mlx_map()->player, j * PLAYER_SIZE, i * PLAYER_SIZE);
-                mlx_map()->p_x = j * PLAYER_SIZE;
-                mlx_map()->p_y = i * PLAYER_SIZE;
+                mlx_map()->p_x = j;
+                mlx_map()->p_y = i;
             }
             j++;
         }

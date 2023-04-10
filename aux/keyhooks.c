@@ -6,7 +6,7 @@
 /*   By: sark <sark@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:37:25 by sark              #+#    #+#             */
-/*   Updated: 2023/04/10 22:32:23 by sark             ###   ########.fr       */
+/*   Updated: 2023/04/10 22:52:41 by sark             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,29 @@
 
 void    walk_left(void)
 {
-    
-    if (mlx_map()->p_x - PLAYER_SIZE < PLAYER_SIZE)
+    if (mlx_map()->map[mlx_map()->p_y][mlx_map()->p_x - 1] == '1')
         return ;
-    mlx_map()->p_x -= PLAYER_SIZE;
+    mlx_map()->p_x -= 1;
 }
 void    walk_right(void)
 {
-    if (mlx_map()->p_x + PLAYER_SIZE >= mlx_win()->width - PLAYER_SIZE)
+    if (mlx_map()->map[mlx_map()->p_y][mlx_map()->p_x + 1] == '1')
         return ;
-    mlx_map()->p_x += PLAYER_SIZE;
+    mlx_map()->p_x += 1;
 }
 
 void    walk_up(void)
 {
-    if (mlx_map()->p_y - PLAYER_SIZE < PLAYER_SIZE)
+    if (mlx_map()->map[mlx_map()->p_y - 1][mlx_map()->p_x] == '1')
         return ;
-    mlx_map()->p_y -= PLAYER_SIZE;
+    mlx_map()->p_y -= 1;
 }
 
 void    walk_down(void)
 {
-    if (mlx_map()->p_y + PLAYER_SIZE >= mlx_win()->height - PLAYER_SIZE)
+    if (mlx_map()->map[mlx_map()->p_y + 1][mlx_map()->p_x] == '1')
         return ;
-    mlx_map()->p_y += PLAYER_SIZE;
+    mlx_map()->p_y += 1;
 }
 
 int eventos(int keycode)
@@ -54,7 +53,7 @@ int eventos(int keycode)
         if (keycode == 115 || keycode == 65364)
             walk_down();
         build_map();
-        mlx_put_image_to_window(mlx_win()->mlx, mlx_win()->mlx_win, mlx_map()->player, mlx_map()->p_x, mlx_map()->p_y);
+        mlx_put_image_to_window(mlx_win()->mlx, mlx_win()->mlx_win, mlx_map()->player, mlx_map()->p_x * PLAYER_SIZE, mlx_map()->p_y * PLAYER_SIZE);
     }
     if (keycode == 65307)
     {
