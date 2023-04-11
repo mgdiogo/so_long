@@ -6,7 +6,7 @@
 /*   By: sark <sark@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 19:18:14 by sark              #+#    #+#             */
-/*   Updated: 2023/04/11 02:33:50 by sark             ###   ########.fr       */
+/*   Updated: 2023/04/11 02:54:00 by sark             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ t_map   *mlx_map(void);
 
 int     eventos(int keycode);
 
-int    read_map(char *filename);
+int    map_y(char *filename);
 
 char	*get_next_line(int fd);
 
@@ -59,10 +59,20 @@ int	clear_ln(char *buf);
 
 char	*free_gnl(char *gnl);
 
-int    check_map(char *filename);
+int    map_x(char *filename);
 
 void    build_map(void);
 
 void    set_player(void);
+
+void    walk_right(void);
+
+void    walk_left(void);
+
+void    walk_up(void);
+
+void    walk_down(void);
+
+void    count_collectibles(void);
 
 #endif

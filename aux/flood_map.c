@@ -6,7 +6,7 @@
 /*   By: sark <sark@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 19:45:22 by sark              #+#    #+#             */
-/*   Updated: 2023/04/11 02:33:26 by sark             ###   ########.fr       */
+/*   Updated: 2023/04/11 03:02:01 by sark             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,3 +58,21 @@ void    set_player(void)
         i++;
     }
 }
+
+/*void    collect_c(void)
+{
+    int i;
+    int j;
+
+    i = 0;
+    while (mlx_map()->map && mlx_map()->map[i])
+    {
+        j = 0;
+        while (mlx_map()->map && mlx_map()->map[i][j])
+        {
+            if ()
+            j++;
+        }
+        i++;
+    }
+}*/

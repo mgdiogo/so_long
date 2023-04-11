@@ -6,13 +6,13 @@
 /*   By: sark <sark@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 18:06:05 by sark              #+#    #+#             */
-/*   Updated: 2023/04/10 22:15:03 by sark             ###   ########.fr       */
+/*   Updated: 2023/04/11 03:12:00 by sark             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-int read_map(char *filename)
+int map_y(char *filename)
 {
     int     fd;
     int     i;
@@ -41,7 +41,7 @@ int read_map(char *filename)
     return (1);
 }
 
-int check_map(char *filename)
+int map_x(char *filename)
 {
     int     fd;
     int     i;
@@ -68,4 +68,23 @@ int check_map(char *filename)
     }
     mlx_win()->x = j;
     return (1);
+}
+
+void    count_collectibles(void)
+{
+    int i;
+    int j;
+
+    i = 0;
+    while (mlx_map()->map && mlx_map()->map[i])
+    {
+        j = 0;
+        while (mlx_map()->map && mlx_map()->map[i][j])
+        {
+            if (mlx_map()->map[i][j] == 'C')
+                mlx_map()->c_count++;
+            j++;
+        }
+        i++;
+    }
 }
