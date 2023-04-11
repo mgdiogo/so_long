@@ -6,11 +6,13 @@
 /*   By: sark <sark@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 18:06:05 by sark              #+#    #+#             */
-/*   Updated: 2023/04/11 03:12:00 by sark             ###   ########.fr       */
+/*   Updated: 2023/04/11 03:15:17 by sark             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
+
+//Talvez substituir o x e o y?
 
 int map_y(char *filename)
 {
