@@ -3,18 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   create_win.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sark <sark@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mpedroso <mpedroso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 17:34:22 by sark              #+#    #+#             */
-/*   Updated: 2023/03/29 17:40:35 by sark             ###   ########.fr       */
+/*   Updated: 2023/04/11 15:46:24 by mpedroso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-t_win   *mlx_win(void)
+t_win	*mlx_win(void)
 {
-    static t_win	mlx_win;
+	static t_win	mlx_win;
 
-    return (&mlx_win);
+	return (&mlx_win);
 }
+
