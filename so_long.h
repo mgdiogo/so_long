@@ -6,7 +6,7 @@
 /*   By: sark <sark@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 19:18:14 by sark              #+#    #+#             */
-/*   Updated: 2023/04/05 22:16:54 by sark             ###   ########.fr       */
+/*   Updated: 2023/04/11 02:33:50 by sark             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ typedef struct  s_map
     void    *wall;
     void    *background;
     void    *player;
+    void    *c_img;
+    int     c_count;
     int     p_x;
     int     p_y;
 }   t_map;

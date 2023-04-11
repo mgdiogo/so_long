@@ -6,7 +6,7 @@
 /*   By: sark <sark@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 19:11:45 by sark              #+#    #+#             */
-/*   Updated: 2023/04/10 22:12:59 by sark             ###   ########.fr       */
+/*   Updated: 2023/04/11 02:33:20 by sark             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	main(int argc, char **argv)
 	mlx_map()->wall = mlx_xpm_file_to_image(mlx_win()->mlx, "./assets/wall.xpm", &mlx_win()->x, &mlx_win()->y);
 	mlx_map()->background = mlx_xpm_file_to_image(mlx_win()->mlx, "./assets/background.xpm", &mlx_win()->x, &mlx_win()->y);
 	mlx_map()->player = mlx_xpm_file_to_image(mlx_win()->mlx, "./assets/player.xpm", &mlx_win()->x, &mlx_win()->y);
+	mlx_map()->c_img = mlx_xpm_file_to_image(mlx_win()->mlx, "./assets/collectible.xpm", &mlx_win()->x, &mlx_win()->y);
 	build_map();
 	set_player();
 	mlx_hook(mlx_win()->mlx_win, 2, 1L<<0, eventos, mlx_win());

@@ -6,7 +6,7 @@
 /*   By: sark <sark@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 19:45:22 by sark              #+#    #+#             */
-/*   Updated: 2023/04/10 22:35:12 by sark             ###   ########.fr       */
+/*   Updated: 2023/04/11 02:33:26 by sark             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void    build_map(void)
         {
             if (mlx_map()->map[i][j] == '1')
                 mlx_put_image_to_window(mlx_win()->mlx, mlx_win()->mlx_win, mlx_map()->wall, j * PLAYER_SIZE, i * PLAYER_SIZE);
+            else if (mlx_map()->map[i][j] == 'C')
+                mlx_put_image_to_window(mlx_win()->mlx, mlx_win()->mlx_win, mlx_map()->c_img, j * PLAYER_SIZE, i * PLAYER_SIZE);
             else
                 mlx_put_image_to_window(mlx_win()->mlx, mlx_win()->mlx_win, mlx_map()->background, j * PLAYER_SIZE, i * PLAYER_SIZE);
             j++;
