@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flood_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpedroso <mpedroso@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: sark <sark@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 19:45:22 by sark              #+#    #+#             */
-/*   Updated: 2023/04/11 15:58:00 by mpedroso         ###   ########.fr       */
+/*   Updated: 2023/04/12 18:10:52 by sark             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ void	build_map(void)
 			else if (mlx_map()->map[i][j] == 'C')
 				mlx_put_image_to_window(mlx_win()->mlx, mlx_win()->mlx_win,
 					mlx_map()->c_img, j * PLAYER_SIZE, i * PLAYER_SIZE);
+			else if (mlx_map()->c_count == 0 && mlx_map()->map[i][j] == 'E')
+				mlx_put_image_to_window(mlx_win()->mlx, mlx_win()->mlx_win,
+					mlx_map()->exit, j * PLAYER_SIZE, i * PLAYER_SIZE);
 			else
 				mlx_put_image_to_window(mlx_win()->mlx, mlx_win()->mlx_win,
 					mlx_map()->background, j * PLAYER_SIZE, i
@@ -41,8 +44,8 @@ void	build_map(void)
 
 void	set_player(void)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (mlx_map()->map && mlx_map()->map[i])

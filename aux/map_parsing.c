@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   map_parsing.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpedroso <mpedroso@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: sark <sark@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 18:06:05 by sark              #+#    #+#             */
-/*   Updated: 2023/04/11 15:23:31 by mpedroso         ###   ########.fr       */
+/*   Updated: 2023/04/12 17:52:35 by sark             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
-
-//Talvez substituir o x e o y?
 
 int	map_y(char *filename)
 {
@@ -89,4 +87,30 @@ void	count_collectibles(void)
 		}
 		i++;
 	}
+}
+
+int	verify_walls(void)
+{
+	int	i;
+	int	j;
+	int	s_len;
+
+	i = 0;
+	s_len = ft_strlen(mlx_map()->map[0]);
+	while (mlx_map()->map && mlx_map()->map[i])
+	{
+		j = 0;
+		while (mlx_map()->map && mlx_map()->map[i][j] && j < s_len - 1)
+		{
+			if (mlx_map()->map[0][j] != '1'
+			|| mlx_map()->map[mlx_win()->y - 1][j] != '1')
+				return (0);
+			else if (mlx_map()->map[i][0] != '1'
+			|| mlx_map()->map[i][mlx_win()->x - 1] != '1')
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
 }
