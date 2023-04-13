@@ -6,7 +6,7 @@
 /*   By: sark <sark@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 18:06:05 by sark              #+#    #+#             */
-/*   Updated: 2023/04/12 17:52:35 by sark             ###   ########.fr       */
+/*   Updated: 2023/04/13 19:17:59 by sark             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	map_x(char *filename)
 	return (1);
 }
 
-void	count_collectibles(void)
+int	count_items(void)
 {
 	int	i;
 	int	j;
@@ -83,10 +83,17 @@ void	count_collectibles(void)
 		{
 			if (mlx_map()->map[i][j] == 'C')
 				mlx_map()->c_count++;
+			else if (mlx_map()->map[i][j] == 'E')
+				mlx_map()->b_e++;
+			else if (mlx_map()->map[i][j] == 'P')
+				mlx_map()->b_p++;
+			if (mlx_map()->b_e > 1 || mlx_map()->b_p > 1)
+				return (0);
 			j++;
 		}
 		i++;
 	}
+	return (1);
 }
 
 int	verify_walls(void)
@@ -112,5 +119,28 @@ int	verify_walls(void)
 		}
 		i++;
 	}
+	set_player_pos();
 	return (1);
+}
+
+void	set_player_pos(void)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (mlx_map()->map && mlx_map()->map[i])
+	{
+		j = 0;
+		while (mlx_map()->map && mlx_map()->map[i][j])
+		{
+			if (mlx_map()->map[i][j] == 'P')
+			{
+				mlx_map()->p_x = j;
+				mlx_map()->p_y = i;
+			}
+			j++;
+		}
+		i++;
+	}
 }

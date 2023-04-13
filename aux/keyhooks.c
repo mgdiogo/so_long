@@ -6,7 +6,7 @@
 /*   By: sark <sark@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:37:25 by sark              #+#    #+#             */
-/*   Updated: 2023/04/12 18:45:37 by sark             ###   ########.fr       */
+/*   Updated: 2023/04/13 19:42:16 by sark             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ void	walk_left(void)
 {
 	if (mlx_map()->map[mlx_map()->p_y][mlx_map()->p_x - 1] == '1')
 		return ;
-	else if (mlx_map()->map[mlx_map()->p_y][mlx_map()->p_x - 1] == 'C')
+	else if (mlx_map()->map[mlx_map()->p_y][mlx_map()->p_x - 1] == 'c')
 	{
-		mlx_map()->map[mlx_map()->p_y][mlx_map()->p_x - 1] = '0';
+		mlx_map()->map[mlx_map()->p_y][mlx_map()->p_x - 1] = 'o';
 		mlx_map()->c_count--;
 	}
-	else if (mlx_map()->map[mlx_map()->p_y][mlx_map()->p_x - 1] == 'E'
+	else if (mlx_map()->map[mlx_map()->p_y][mlx_map()->p_x - 1] == 'e'
 	&& mlx_map()->c_count == 0)
 	{
 		ft_putstr("The end\n");
@@ -38,12 +38,12 @@ void	walk_right(void)
 {
 	if (mlx_map()->map[mlx_map()->p_y][mlx_map()->p_x + 1] == '1')
 		return ;
-	else if (mlx_map()->map[mlx_map()->p_y][mlx_map()->p_x + 1] == 'C')
+	else if (mlx_map()->map[mlx_map()->p_y][mlx_map()->p_x + 1] == 'c')
 	{
-		mlx_map()->map[mlx_map()->p_y][mlx_map()->p_x + 1] = '0';
+		mlx_map()->map[mlx_map()->p_y][mlx_map()->p_x + 1] = 'o';
 		mlx_map()->c_count--;
 	}
-	else if (mlx_map()->map[mlx_map()->p_y][mlx_map()->p_x + 1] == 'E'
+	else if (mlx_map()->map[mlx_map()->p_y][mlx_map()->p_x + 1] == 'e'
 	&& mlx_map()->c_count == 0)
 	{
 		ft_putstr("The end\n");
@@ -60,12 +60,12 @@ void	walk_up(void)
 {
 	if (mlx_map()->map[mlx_map()->p_y - 1][mlx_map()->p_x] == '1')
 		return ;
-	else if (mlx_map()->map[mlx_map()->p_y - 1][mlx_map()->p_x] == 'C')
+	else if (mlx_map()->map[mlx_map()->p_y - 1][mlx_map()->p_x] == 'c')
 	{
-		mlx_map()->map[mlx_map()->p_y - 1][mlx_map()->p_x] = '0';
+		mlx_map()->map[mlx_map()->p_y - 1][mlx_map()->p_x] = 'o';
 		mlx_map()->c_count--;
 	}
-	else if (mlx_map()->map[mlx_map()->p_y - 1][mlx_map()->p_x] == 'E'
+	else if (mlx_map()->map[mlx_map()->p_y - 1][mlx_map()->p_x] == 'e'
 	&& mlx_map()->c_count == 0)
 	{
 		ft_putstr("The end\n");
@@ -82,12 +82,12 @@ void	walk_down(void)
 {
 	if (mlx_map()->map[mlx_map()->p_y + 1][mlx_map()->p_x] == '1')
 		return ;
-	else if (mlx_map()->map[mlx_map()->p_y + 1][mlx_map()->p_x] == 'C')
+	else if (mlx_map()->map[mlx_map()->p_y + 1][mlx_map()->p_x] == 'c')
 	{
-		mlx_map()->map[mlx_map()->p_y + 1][mlx_map()->p_x] = '0';
+		mlx_map()->map[mlx_map()->p_y + 1][mlx_map()->p_x] = 'o';
 		mlx_map()->c_count--;
 	}
-	else if (mlx_map()->map[mlx_map()->p_y + 1][mlx_map()->p_x] == 'E'
+	else if (mlx_map()->map[mlx_map()->p_y + 1][mlx_map()->p_x] == 'e'
 	&& mlx_map()->c_count == 0)
 	{
 		ft_putstr("The end\n");

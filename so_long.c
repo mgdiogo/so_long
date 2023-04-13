@@ -6,7 +6,7 @@
 /*   By: sark <sark@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 19:11:45 by sark              #+#    #+#             */
-/*   Updated: 2023/04/12 16:35:38 by sark             ###   ########.fr       */
+/*   Updated: 2023/04/13 19:18:29 by sark             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	mlx_win()->mlx = mlx_init();
-	if (!map_y(argv[1]) || !map_x(argv[1]) || !verify_walls())
+	if (!map_y(argv[1]) || !map_x(argv[1])
+		|| !verify_walls() || !count_items() || !flood_check())
 	{
 		ft_putstr("Mapa invalido\n");
 		return (0);
@@ -40,7 +41,6 @@ int	main(int argc, char **argv)
 			"./assets/collectible.xpm", &mlx_win()->x, &mlx_win()->y);
 	mlx_map()->exit = mlx_xpm_file_to_image(mlx_win()->mlx,
 			"./assets/exit.xpm", &mlx_win()->x, &mlx_win()->y);
-	count_collectibles();
 	build_map();
 	set_player();
 	mlx_hook(mlx_win()->mlx_win, 2, 1L << 0, eventos, mlx_win());

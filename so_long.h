@@ -6,7 +6,7 @@
 /*   By: sark <sark@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 19:18:14 by sark              #+#    #+#             */
-/*   Updated: 2023/04/12 19:27:30 by sark             ###   ########.fr       */
+/*   Updated: 2023/04/13 19:13:33 by sark             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,10 @@ typedef struct s_map
 	int		p_x;
 	int		p_y;
 	int		p_moves;
+	int		b_e;
+	int		b_p;
+	int		c_c;
+	int		s_e;
 }			t_map;
 
 t_win		*mlx_win(void);
@@ -75,7 +79,7 @@ void		walk_up(void);
 
 void		walk_down(void);
 
-void		count_collectibles(void);
+int			count_items(void);
 
 void		ft_putchar(char c);
 
@@ -84,5 +88,11 @@ void		ft_putstr(char *s);
 void		ft_putnbr(int nb);
 
 int			verify_walls(void);
+
+int			flood_check(void);
+
+void		flood_fill(int i, int j);
+
+void		set_player_pos(void);
 
 #endif
