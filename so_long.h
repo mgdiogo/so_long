@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sark <sark@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mpedroso <mpedroso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 19:18:14 by sark              #+#    #+#             */
-/*   Updated: 2023/04/13 19:13:33 by sark             ###   ########.fr       */
+/*   Updated: 2023/06/12 16:24:32 by mpedroso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,11 @@ int			flood_check(void);
 void		flood_fill(int i, int j);
 
 void		set_player_pos(void);
+
+int			close_win(int keycode);
+
+void		free_memory(void);
+
+void		free_map(void);
 
 #endif

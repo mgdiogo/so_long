@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flood_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sark <sark@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mpedroso <mpedroso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 19:45:22 by sark              #+#    #+#             */
-/*   Updated: 2023/04/13 19:40:22 by sark             ###   ########.fr       */
+/*   Updated: 2023/06/13 13:42:30 by mpedroso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ void	build_map(void)
 	int	i;
 	int	j;
 
-	i = 0;
-	while (mlx_map()->map && mlx_map()->map[i])
+	i = -1;
+	while (mlx_map()->map && mlx_map()->map[++i])
 	{
-		j = 0;
-		while (mlx_map()->map && mlx_map()->map[i][j])
+		j = -1;
+		while (mlx_map()->map && mlx_map()->map[i][++j])
 		{
 			if (mlx_map()->map[i][j] == '1')
 				mlx_put_image_to_window(mlx_win()->mlx, mlx_win()->mlx_win,
@@ -36,9 +36,7 @@ void	build_map(void)
 				mlx_put_image_to_window(mlx_win()->mlx, mlx_win()->mlx_win,
 					mlx_map()->background, j * PLAYER_SIZE, i
 					* PLAYER_SIZE);
-			j++;
 		}
-		i++;
 	}
 }
 

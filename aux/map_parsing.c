@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_parsing.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sark <sark@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mpedroso <mpedroso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 18:06:05 by sark              #+#    #+#             */
-/*   Updated: 2023/04/13 19:17:59 by sark             ###   ########.fr       */
+/*   Updated: 2023/06/13 15:30:18 by mpedroso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,9 @@ int	map_y(char *filename)
 	mlx_win()->y = i;
 	if (mlx_win()->y < 3)
 		return (0);
-	if (mlx_win()->y > 0)
-	{
-		mlx_map()->map = (char **)malloc(sizeof(char *) * (mlx_win()->y + 1));
-		if (!mlx_map()->map)
-			return (0);
-	}
+	mlx_map()->map = (char **)malloc(sizeof(char *) * (mlx_win()->y + 1));
+	if (!mlx_map()->map)
+		return (0);
 	return (1);
 }
 
@@ -49,7 +46,6 @@ int	map_x(char *filename)
 
 	fd = open(filename, O_RDONLY);
 	i = 0;
-	j = 0;
 	while (1)
 	{
 		mlx_map()->map[i] = get_next_line(fd);
@@ -87,12 +83,12 @@ int	count_items(void)
 				mlx_map()->b_e++;
 			else if (mlx_map()->map[i][j] == 'P')
 				mlx_map()->b_p++;
-			if (mlx_map()->b_e > 1 || mlx_map()->b_p > 1)
-				return (0);
 			j++;
 		}
 		i++;
 	}
+	if (mlx_map()->b_e != 1 || mlx_map()->b_p != 1)
+		return (0);
 	return (1);
 }
 

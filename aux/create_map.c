@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   create_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sark <sark@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mpedroso <mpedroso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 20:01:54 by sark              #+#    #+#             */
-/*   Updated: 2023/04/05 20:23:04 by sark             ###   ########.fr       */
+/*   Updated: 2023/06/13 14:29:12 by mpedroso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-t_map   *mlx_map(void)
+t_map	*mlx_map(void)
 {
-    static t_map	mlx_map;
+	static t_map	mlx_map;
 
-    return (&mlx_map);
+	return (&mlx_map);
 }
